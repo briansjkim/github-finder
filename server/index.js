@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 const db = require('../database/index.js');
 const path = require('path');
+const { default: Axios } = require('axios');
 const app = express();
 const PORT = 4000;
 
@@ -13,7 +14,8 @@ app.get('/api/repos', (req, res) => {
 });
 
 app.post('/api/repos', (req, res) => {
-    res.send('POST successful');
+    // const { username } = req.body;
+    // axios.get(`https://api.github.com/users/${username}/repos`)
 });
 
 app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
