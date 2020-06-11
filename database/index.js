@@ -10,7 +10,27 @@ const repoSchema = new mongoose.Schema({
     name: String,
     owner_login: String,
     owner_repos_url: String,
-    owner_starred_url: String
+    stargazers_count: Number
 });
 
 const Repo = mongoose.model('Repo', repoSchema);
+
+module.exports = {
+    saveRepo: function(repo) {
+        let newRepo = new Repo({
+            id: repo.id,
+            name: repo.name,
+            owner_login: repo.owner.login,
+            owner_repos_url: repo.owner.url,
+            stargarzers_count: repo.stargazers_count
+        });
+
+        Repo.save((err, result) => {
+            if (err) {
+                console.log('Error: ', err);
+            } else {
+                console.log('Success');
+            }
+        })
+    }
+}
