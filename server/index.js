@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 const db = require('../database/index.js');
 const path = require('path');
-const { default: Axios } = require('axios');
 const app = express();
 const PORT = 4000;
 
