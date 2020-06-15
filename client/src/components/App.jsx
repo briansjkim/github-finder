@@ -6,8 +6,10 @@ const App = () => {
     const [introData, setIntro] = useState('');
 
     useEffect(() => {
-        setIntro('Hello There');
-    })
+        axios.get('/api/repos')
+            .then(res => setRepos(res.data))
+            .catch(err => console.log(err));
+    }, []);
 
     return (
         <div>
