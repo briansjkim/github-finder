@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const App = () => {
     const [repos, setRepos] = useState([]);
-    const [introData, setIntro] = useState('');
 
     useEffect(() => {
         axios.get('/api/repos')
@@ -12,8 +11,13 @@ const App = () => {
     }, []);
 
     return (
-        <div>
-            <p>{introData}</p>
+        <div className="App">
+            <div className="App-header">
+                <h1>Github Finder</h1>
+            </div>
+            <div className="App-body">
+                <p>Hello</p>
+            </div>
         </div>
     )
 }
