@@ -5,10 +5,14 @@ const App = () => {
     const [repos, setRepos] = useState([]);
     const [searchedUser, setSearchedUser] = useState('');
 
-    useEffect(() => {
+    const retrieveRepos = function() {
         axios.get('/api/repos')
             .then(res => setRepos(res.data))
             .catch(err => console.log(err));
+    }
+
+    useEffect(() => {
+        retrieveRepos();
     }, []);
 
     const handleChange = function(val) {
@@ -16,7 +20,10 @@ const App = () => {
     };
 
     const submitSearch = function() {
-        console.log('Method working');
+        axios.post('/api/repos', { username: searchedUser} )
+        .then(() => retrieveRepos())
+        .then(() => setSearchedUser(''))
+        .catch(err => console.log(err));
     }
 
     return (
