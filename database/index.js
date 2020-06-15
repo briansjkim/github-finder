@@ -41,6 +41,6 @@ module.exports = {
             } else {
                 res.send(result);
             }
-        })
+        }).limit(25).sort( { watchers_count: -1 });
     }
 };
