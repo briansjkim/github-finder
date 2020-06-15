@@ -13,6 +13,10 @@ const App = () => {
 
     const handleChange = function(val) {
         setSearchedUser(val);
+    };
+
+    const submitSearch = function() {
+        console.log('Method working');
     }
 
     return (
@@ -31,6 +35,7 @@ const App = () => {
                 <input
                     className="Search-submit"
                     type="submit"
+                    onClick={submitSearch}
                 />
             </div>
         </div>
