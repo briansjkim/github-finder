@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const App = () => {
     const [repos, setRepos] = useState([]);
+    const [searchedUser, setSearchedUser] = useState('');
 
     useEffect(() => {
         axios.get('/api/repos')
@@ -15,8 +16,16 @@ const App = () => {
             <div className="App-header">
                 <h1>Github Finder</h1>
             </div>
-            <div className="App-body">
-                <p>Hello</p>
+            <div className="Search">
+                <input
+                    className="Search-user"
+                    type="text"
+                    placeholder="Search Github User"
+                />
+                <input
+                    className="Search-submit"
+                    type="submit"
+                />
             </div>
         </div>
     )
