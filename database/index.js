@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/finder', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
@@ -25,7 +25,7 @@ module.exports = {
             stargarzers_count: repo.stargazers_count
         });
 
-        Repo.save((err, result) => {
+        newRepo.save((err, result) => {
             if (err) {
                 console.log('Error: ', err);
             } else {
