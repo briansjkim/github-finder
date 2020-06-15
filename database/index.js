@@ -32,5 +32,9 @@ module.exports = {
                 console.log('Success');
             }
         })
+    },
+
+    getRepos: function (req, res) {
+        
     }
 }
