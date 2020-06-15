@@ -11,6 +11,10 @@ const App = () => {
             .catch(err => console.log(err));
     }, []);
 
+    const handleChange = function(val) {
+        setSearchedUser(val);
+    }
+
     return (
         <div className="App">
             <div className="App-header">
@@ -20,7 +24,9 @@ const App = () => {
                 <input
                     className="Search-user"
                     type="text"
+                    value={searchedUser}
                     placeholder="Search Github User"
+                    onChange={e => handleChange(e.target.value)}
                 />
                 <input
                     className="Search-submit"
