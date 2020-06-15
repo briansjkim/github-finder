@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname + '/../client/dist')));
 
 app.get('/api/repos', (req, res) => {
-    res.send('GET successful');
+    db.getRepos(req, res);
 });
 
 app.post('/api/repos', (req, res) => {
