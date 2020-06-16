@@ -5,3 +5,29 @@
 .app_header {
     font-size: 25px;
 }
+
+.search {
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+
+.search_user {
+    width: 300px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.search_submit {
+    height: 25px;
+    cursor: pointer;
+}
+
+.repo_users {
+    /* border: 1px solid black; */
+}
+
+.repo {
+    border: 1px solid black;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
