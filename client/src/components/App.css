@@ -31,3 +31,8 @@
     margin-bottom: 20px;
     margin-top: 20px;
 }
+
+.repo a {
+    cursor: pointer;
+    color: black;
+}
