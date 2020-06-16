@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Users from './Users.jsx';
 import axios from 'axios';
 
 const App = () => {
@@ -9,7 +10,7 @@ const App = () => {
         axios.get('/api/repos')
             .then(res => setRepos(res.data))
             .catch(err => console.log(err));
-    }
+    };
 
     useEffect(() => {
         retrieveRepos();
@@ -24,7 +25,7 @@ const App = () => {
         .then(() => retrieveRepos())
         .then(() => setSearchedUser(''))
         .catch(err => console.log(err));
-    }
+    };
 
     return (
         <div className="App">
@@ -44,6 +45,11 @@ const App = () => {
                     type="submit"
                     onClick={submitSearch}
                 />
+            </div>
+            <div className="Repo-users">
+                {repos.map((repo, idx) =>
+                    <Users repo={repo} key={idx} />
+                )}
             </div>
         </div>
     )
