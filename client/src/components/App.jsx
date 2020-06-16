@@ -5,6 +5,7 @@ import styles from './App.css';
 
 const App = () => {
     const [repos, setRepos] = useState([]);
+    const [noResults, setNoResults ] = useState(false);
     const [searchedUser, setSearchedUser] = useState('');
 
     const retrieveRepos = function() {
