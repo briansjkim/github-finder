@@ -8,8 +8,8 @@ db.once('open', () => console.log('Connected'));
 const repoSchema = new mongoose.Schema({
     id: Number,
     name: String,
+    repos_url: String,
     owner_login: String,
-    owner_repos_url: String,
     stargazers_count: Number
 });
 
@@ -20,16 +20,14 @@ module.exports = {
         let newRepo = new Repo({
             id: repo.id,
             name: repo.name,
+            repos_url: repo.html_url,
             owner_login: repo.owner.login,
-            owner_repos_url: repo.owner.url,
             stargarzers_count: repo.stargazers_count
         });
 
         newRepo.save((err, result) => {
             if (err) {
                 console.log('Error: ', err);
-            } else {
-                console.log('Success');
             }
         })
     },
