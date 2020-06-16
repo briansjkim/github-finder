@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Users from './Users.jsx';
 import axios from 'axios';
+import styles from './App.css';
 
 const App = () => {
     const [repos, setRepos] = useState([]);
@@ -28,25 +29,25 @@ const App = () => {
     };
 
     return (
-        <div className="App">
-            <div className="App-header">
+        <div className={styles.app}>
+            <div className={styles.app_header}>
                 <h1>Github Finder</h1>
             </div>
-            <div className="Search">
+            <div className={styles.search}>
                 <input
-                    className="Search-user"
+                    className={styles.search_user}
                     type="text"
                     value={searchedUser}
                     placeholder="Search Github User"
                     onChange={e => handleChange(e.target.value)}
                 />
                 <input
-                    className="Search-submit"
+                    className={styles.search_submit}
                     type="submit"
                     onClick={submitSearch}
                 />
             </div>
-            <div className="Repo-users">
+            <div className={styles.repo_users}>
                 {repos.map((repo, idx) =>
                     <Users repo={repo} key={idx} />
                 )}
