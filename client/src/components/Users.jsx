@@ -4,9 +4,9 @@ import styles from './App.css';
 const Users = ({ repo }) => {
     return (
         <div className={styles.repo}>
-            <p>{repo.owner_login}</p>
-            <p>{repo.name}</p>
-            <p>{repo.repos_url}</p>
+            <h1>{repo.owner_login}</h1>
+            <h3><a href={repo.repos_url}>{repo.name}</a></h3>
+            {/* <p>Github Link: <a src="">{repo.repos_url}</a></p> */}
         </div>
     )
 }
