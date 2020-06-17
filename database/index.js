@@ -22,12 +22,14 @@ module.exports = {
             name: repo.name,
             repos_url: repo.html_url,
             owner_login: repo.owner.login,
-            stargarzers_count: repo.stargazers_count
+            watchers_count: repo.watchers_count
         });
 
         newRepo.save((err, result) => {
             if (err) {
                 console.log('Error: ', err);
+            } else {
+                console.log(result);
             }
         })
     },
@@ -37,6 +39,7 @@ module.exports = {
             if (err) {
                 console.log('Error: ', err);
             } else {
+                // console.log(result);
                 res.send(result);
             }
         }).limit(25).sort( { watchers_count: -1 });
