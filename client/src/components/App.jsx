@@ -51,7 +51,6 @@ const App = () => {
         setSearchedUser('');
         axios.post('/api/repos', { username: searchedUser} )
             .then(() => retrieveRepos())
-            .then(() => console.log('post'))
             .catch((err) => console.log(err))
     };
 
