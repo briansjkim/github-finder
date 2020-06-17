@@ -25,7 +25,7 @@ app.post('/api/repos', (req, res) => {
     .then((data) => {
         data.forEach(repo => db.saveRepo(repo));
     })
-    .catch((error) => console.log(error));
+    .catch((error) => { throw error; });
     res.status(201).send('Successful');
 });
 

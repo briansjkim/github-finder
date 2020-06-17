@@ -11,7 +11,7 @@ const App = () => {
     const retrieveRepos = function() {
         axios.get('/api/repos')
             .then(res => setRepos(res.data))
-            .catch(err => console.log(err));
+            .catch(err => { throw err; });
     };
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const App = () => {
         setSearchedUser('');
         axios.post('/api/repos', { username: searchedUser} )
             .then(() => retrieveRepos())
-            .catch((err) => console.log(err))
+            .catch((err) => { throw err;} )
     };
 
     return (

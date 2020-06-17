@@ -27,7 +27,7 @@ module.exports = {
 
         newRepo.save((err, result) => {
             if (err) {
-                console.log('Error: ', err);
+                throw err;
             }
         })
     },
@@ -35,7 +35,7 @@ module.exports = {
     getRepos: function (req, res) {
         Repo.find({}, (err, result) => {
             if (err) {
-                console.log('Error: ', err);
+                throw err;
             } else {
                 res.send(result);
             }
