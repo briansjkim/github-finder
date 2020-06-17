@@ -26,6 +26,7 @@ app.post('/api/repos', (req, res) => {
         data.forEach(repo => db.saveRepo(repo));
     })
     .catch((error) => console.log(error));
+    res.status(201).send('Successful');
 });
 
 app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
