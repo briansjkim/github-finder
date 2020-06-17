@@ -22,10 +22,6 @@
     cursor: pointer;
 }
 
-/* .repo_users {
-    text-align: center;
-} */
-
 .repo {
     border: 1px solid black;
     margin-bottom: 20px;
@@ -35,4 +31,33 @@
 .repo a {
     cursor: pointer;
     color: black;
+}
+
+.back {
+    border: none;
+    background: #ffffff;
+    color: #404040 !important;
+    font-weight: 500;
+    padding: 20px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    transition: all 0.3s ease 0s;
+    float: right;
+}
+
+.back:hover {
+    color: #404040 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.3s ease 0s;
+}
+
+.copyright {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
+    font-size: 15px;
 }
