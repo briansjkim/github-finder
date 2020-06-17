@@ -23,9 +23,9 @@ const App = () => {
     };
 
     const submitSearch = function() {
+        setSearchedUser('');
         axios.post('/api/repos', { username: searchedUser} )
         .then(() => retrieveRepos())
-        .then(() => setSearchedUser(''))
         .catch(err => console.log(err));
     };
 
