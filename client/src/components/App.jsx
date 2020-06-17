@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Users from './Users.jsx';
+import Copyright from './Copyright.jsx';
 import axios from 'axios';
 import styles from './App.css';
 
@@ -30,7 +31,7 @@ const App = () => {
     };
 
     return (
-        <div className={styles.app}>
+        <div id="main" className={styles.app}>
             <div className={styles.app_header}>
                 <h1>Github Finder</h1>
             </div>
@@ -53,6 +54,10 @@ const App = () => {
                     <Users repo={repo} key={idx} />
                 )}
             </div>
+            <div>
+                <a href="#main" className={styles.back}>Back To Top</a>
+            </div>
+            <Copyright />
         </div>
     )
 }
