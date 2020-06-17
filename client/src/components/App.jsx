@@ -5,7 +5,6 @@ import styles from './App.css';
 
 const App = () => {
     const [repos, setRepos] = useState([]);
-    const [noResults, setNoResults ] = useState(false);
     const [searchedUser, setSearchedUser] = useState('');
 
     const retrieveRepos = function() {
@@ -13,55 +12,22 @@ const App = () => {
             .then(res => setRepos(res.data))
             .catch(err => console.log(err));
     };
-    
-    // const callAPI = async () => {
-    //     try {
-    //         const repos = await axios.get('/api/repos');
-    //         console.log(repos);
-    //         // const retrievedRepos = await repos.json();
-    //         // console.log(retrievedRepos);
-    //         // return retrievedRepos;
-    //     } catch(error) {
-    //         console.log(error);
-    //     }
-    // }
 
     useEffect(() => {
         retrieveRepos();
-    }, []);
-
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         try {
-    //             const resRepos = await callAPI();
-    //             setRepos(resRepos);
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     }
-
-    //     fetchData();
-    // }, []);
+    }, [repos]);
 
     const handleChange = (val) => {
         setSearchedUser(val);
     };
 
-    const submitSearch = function() {
+    const submitSearch = function(e) {
+        e.preventDefault();
         setSearchedUser('');
         axios.post('/api/repos', { username: searchedUser} )
             .then(() => retrieveRepos())
             .catch((err) => console.log(err))
     };
-
-    // const submitSearch = async () => {
-    //     try {
-    //         axios.post('/api/repos', { username: searchedUser})
-    //         setSearchedUser('');
-    //     } catch(error) {
-    //         console.log(error);
-    //     }
-    // };
 
     return (
         <div className={styles.app}>
@@ -79,7 +45,7 @@ const App = () => {
                 <input
                     className={styles.search_submit}
                     type="submit"
-                    onClick={submitSearch}
+                    onClick={e => submitSearch(e)}
                 />
             </div>
             <div className={styles.repo_users}>
