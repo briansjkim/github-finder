@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './App.css';
 
 const Copyright = () => {
     return (
-        <div>
+        <div className={styles.copyright}>
             <span>Copyright &copy; Brian Kim 2020</span>
         </div>
     )
