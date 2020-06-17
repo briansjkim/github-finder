@@ -8,58 +8,61 @@ const App = () => {
     const [noResults, setNoResults ] = useState(false);
     const [searchedUser, setSearchedUser] = useState('');
 
-    // const retrieveRepos = function() {
-    //     axios.get('/api/repos')
-    //         .then(res => setRepos(res.data))
-    //         .catch(err => console.log(err));
-    // };
-    const callAPI = async function() {
-        try {
-            const repos = await fetch('/api/repos');
-            const retrievedRepos = await repos.json();
-            // console.log(retrievedRepos);
-            return retrievedRepos;
-        } catch(error) {
-            console.log(error);
-        }
-    }
-
-    // useEffect(() => {
-    //     retrieveRepos();
-    // }, []);
+    const retrieveRepos = function() {
+        axios.get('/api/repos')
+            .then(res => setRepos(res.data))
+            .catch(err => console.log(err));
+    };
+    
+    // const callAPI = async () => {
+    //     try {
+    //         const repos = await axios.get('/api/repos');
+    //         console.log(repos);
+    //         // const retrievedRepos = await repos.json();
+    //         // console.log(retrievedRepos);
+    //         // return retrievedRepos;
+    //     } catch(error) {
+    //         console.log(error);
+    //     }
+    // }
 
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const resRepos = await callAPI();
-                setRepos(resRepos);
-            } catch (error) {
-                console.log(error);
-            }
-        }
+        retrieveRepos();
+    }, []);
 
-        fetchData();
-    })
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         try {
+    //             const resRepos = await callAPI();
+    //             setRepos(resRepos);
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     }
 
-    const handleChange = function(val) {
+    //     fetchData();
+    // }, []);
+
+    const handleChange = (val) => {
         setSearchedUser(val);
     };
 
-    // const submitSearch = function() {
-    //     setSearchedUser('');
-    //     axios.post('/api/repos', { username: searchedUser} )
-    //         .then(() => retrieveRepos())
-    //         .then(() => console.log('post'))
-    //         .catch((err) => console.log(err))
-    // };
-    const submitSearch = async function() {
-        try {
-            const newRepos = await callAPI();
-            setSearchedUser('');
-        } catch(error) {
-            console.log(error);
-        }
+    const submitSearch = function() {
+        setSearchedUser('');
+        axios.post('/api/repos', { username: searchedUser} )
+            .then(() => retrieveRepos())
+            .then(() => console.log('post'))
+            .catch((err) => console.log(err))
     };
+
+    // const submitSearch = async () => {
+    //     try {
+    //         axios.post('/api/repos', { username: searchedUser})
+    //         setSearchedUser('');
+    //     } catch(error) {
+    //         console.log(error);
+    //     }
+    // };
 
     return (
         <div className={styles.app}>
