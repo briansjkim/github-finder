@@ -10,7 +10,7 @@ const repoSchema = new mongoose.Schema({
     name: String,
     repos_url: String,
     owner_login: String,
-    stargazers_count: Number
+    watchers_count: Number
 });
 
 const Repo = mongoose.model('Repo', repoSchema);
@@ -28,8 +28,6 @@ module.exports = {
         newRepo.save((err, result) => {
             if (err) {
                 console.log('Error: ', err);
-            } else {
-                console.log(result);
             }
         })
     },
@@ -39,7 +37,6 @@ module.exports = {
             if (err) {
                 console.log('Error: ', err);
             } else {
-                // console.log(result);
                 res.send(result);
             }
         }).limit(25).sort( { watchers_count: -1 });
