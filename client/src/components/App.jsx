@@ -8,25 +8,57 @@ const App = () => {
     const [noResults, setNoResults ] = useState(false);
     const [searchedUser, setSearchedUser] = useState('');
 
-    const retrieveRepos = function() {
-        axios.get('/api/repos')
-            .then(res => setRepos(res.data))
-            .catch(err => console.log(err));
-    };
+    // const retrieveRepos = function() {
+    //     axios.get('/api/repos')
+    //         .then(res => setRepos(res.data))
+    //         .catch(err => console.log(err));
+    // };
+    const callAPI = async function() {
+        try {
+            const repos = await fetch('/api/repos');
+            const retrievedRepos = await repos.json();
+            // console.log(retrievedRepos);
+            return retrievedRepos;
+        } catch(error) {
+            console.log(error);
+        }
+    }
+
+    // useEffect(() => {
+    //     retrieveRepos();
+    // }, []);
 
     useEffect(() => {
-        retrieveRepos();
-    }, []);
+        async function fetchData() {
+            try {
+                const resRepos = await callAPI();
+                setRepos(resRepos);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        fetchData();
+    })
 
     const handleChange = function(val) {
         setSearchedUser(val);
     };
 
-    const submitSearch = function() {
-        setSearchedUser('');
-        axios.post('/api/repos', { username: searchedUser} )
-        .then(() => retrieveRepos())
-        .catch(err => console.log(err));
+    // const submitSearch = function() {
+    //     setSearchedUser('');
+    //     axios.post('/api/repos', { username: searchedUser} )
+    //         .then(() => retrieveRepos())
+    //         .then(() => console.log('post'))
+    //         .catch((err) => console.log(err))
+    // };
+    const submitSearch = async function() {
+        try {
+            const newRepos = await callAPI();
+            setSearchedUser('');
+        } catch(error) {
+            console.log(error);
+        }
     };
 
     return (
