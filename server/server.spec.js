@@ -14,20 +14,6 @@ describe('Init Jest Test', function() {
     });
 });
 
-// app.get('/api/repos', async (req, res) => {
-//     // res.json({message: 'pass'});
-//     db.getRepos(req, res);
-// });
-
-// it('Gets the test endpoint', async done => {
-//     // Sends GET request to /test endpoint
-//     const res = await request.get('/api/repos');
-
-//     expect(res.status).toBe(200);
-//     expect(res.body.message).toBe('pass');
-//     done()
-// })
-
 describe('Test GET api/repos endpoint', () => {
     it('It should response with 200', async done => {
         const res = await request.get('/api/repos');
@@ -44,3 +30,12 @@ describe('Test GET api/repos endpoint', () => {
         done();
     });
 });
+
+describe('Test POST api/repos endpoint', () => {
+    it('It should response with 201', async done => {
+        const res = await request.post('/api/repos');
+
+        expect(res.status).toBe(201);
+        done();
+    })
+})
