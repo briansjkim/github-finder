@@ -28,7 +28,7 @@ describe('Init Jest Test', function() {
 //     done()
 // })
 
-describe('Test api/repos endpoint', () => {
+describe('Test GET api/repos endpoint', () => {
     it('It should response with 200', async done => {
         const res = await request.get('/api/repos');
 
@@ -42,5 +42,5 @@ describe('Test api/repos endpoint', () => {
         
         expect(resRepos.length).toBe(25)
         done();
-    })
-})
+    });
+});
