@@ -23,21 +23,6 @@
     cursor: pointer;
 }
 
-.repo {
-    border: 1px solid black;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-.repo h1 {
-    font-size: 30px;
-}
-
-.repo a {
-    cursor: pointer;
-    color: black;
-}
-
 .back {
     border: none;
     background: #ffffff;
@@ -58,11 +43,4 @@
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     transition: all 0.3s ease 0s;
-}
-
-.copyright {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    float: left;
-    font-size: 15px;
 }

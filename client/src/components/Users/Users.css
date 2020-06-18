@@ -1,0 +1,14 @@
+.repo {
+    border: 1px solid black;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.repo h1 {
+    font-size: 30px;
+}
+
+.repo a {
+    cursor: pointer;
+    color: black;
+}
