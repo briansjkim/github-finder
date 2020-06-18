@@ -29,4 +29,5 @@ app.post('/api/repos', (req, res) => {
     res.status(201).send('Successful');
 });
 
-app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
+module.exports = app;
+// app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
