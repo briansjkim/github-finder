@@ -9,7 +9,7 @@
   "scripts": {
     "build": "webpack -d --watch",
     "start": "nodemon server/index.js",
-    "test": "jest ./server/server.spec.js"
+    "test": "jest server/server.spec.js"
   },
   "repository": {
     "type": "git",
