@@ -34,12 +34,4 @@ describe('Test POST api/repos endpoint', () => {
         expect(res.status).toBe(201);
         done();
     });
-
-    it('It should successfully save a Github user into the database', async done => {
-        const res = await request.post('/api/repos').send({ username: 'orta'});
-
-        expect(res.status).toBe(201);
-        done();
-        
-    })
 });
