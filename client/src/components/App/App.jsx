@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Users from './Users.jsx';
-import Copyright from './Copyright.jsx';
+import Users from '../Users/Users.jsx';
+import Copyright from '../Copyright/Copyright.jsx';
 import axios from 'axios';
-import styles from './css/App.css';
+import styles from '../css/App.css';
 
 const App = () => {
     const [repos, setRepos] = useState([]);
