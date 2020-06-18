@@ -1,7 +1,14 @@
+require('regenerator-runtime/runtime');
 const app = require('./index.js');
 const supertest = require('supertest');
 const request = supertest(app);
-const db = require('../database/index.js');
+const mongoose = require('mongoose');
+const databaseName = 'finder';
+
+beforeAll(async () => {
+    const url = `mongodb://localhost/${databaseName}`;
+    await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+});
 
 describe('Test GET api/repos endpoint', () => {
     it('It should respond with 200', async done => {
@@ -27,4 +34,4 @@ describe('Test POST api/repos endpoint', () => {
         expect(res.status).toBe(201);
         done();
     });
-})
+});
